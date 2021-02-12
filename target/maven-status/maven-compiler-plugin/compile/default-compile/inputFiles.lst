@@ -1,4 +1,9 @@
-/Users/ryanboucher/Desktop/Yr4Sem2Assign.nosync/SYSC4806/Lab3JPA/src/main/java/JpaMemoryDatabase/BuddyRepository.java
-/Users/ryanboucher/Desktop/Yr4Sem2Assign.nosync/SYSC4806/Lab3JPA/src/main/java/JpaMemoryDatabase/AccessingDataJpaApplication.java
-/Users/ryanboucher/Desktop/Yr4Sem2Assign.nosync/SYSC4806/Lab3JPA/src/main/java/JpaMemoryDatabase/AddressBook.java
-/Users/ryanboucher/Desktop/Yr4Sem2Assign.nosync/SYSC4806/Lab3JPA/src/main/java/JpaMemoryDatabase/BuddyInfo.java
+/Users/ryanboucher/Desktop/4806Lab/src/main/java/AppStarter/Controllers/BuddyInfoController.java
+/Users/ryanboucher/Desktop/4806Lab/src/main/java/AppStarter/WebConfig/WebConfig.java
+/Users/ryanboucher/Desktop/4806Lab/src/main/java/AppStarter/Lab4RESTApp.java
+/Users/ryanboucher/Desktop/4806Lab/src/main/java/AppStarter/JpaMemoryDatabase/AccessingDataJpaApplication.java
+/Users/ryanboucher/Desktop/4806Lab/src/main/java/AppStarter/Controllers/AddressBookController.java
+/Users/ryanboucher/Desktop/4806Lab/src/main/java/AppStarter/JpaMemoryDatabase/BuddyRepository.java
+/Users/ryanboucher/Desktop/4806Lab/src/main/java/AppStarter/JpaMemoryDatabase/BuddyInfo.java
+/Users/ryanboucher/Desktop/4806Lab/src/main/java/AppStarter/JpaMemoryDatabase/AddressBookRepository.java
+/Users/ryanboucher/Desktop/4806Lab/src/main/java/AppStarter/JpaMemoryDatabase/AddressBook.java
