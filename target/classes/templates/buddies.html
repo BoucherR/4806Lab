@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>List of Buddies</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Buddies:</h1>
+<table>
+    <thead>
+    <tr>
+        <th> Buddy ID </th>
+        <th> Buddy Name </th>
+        <th> Buddy Number </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${buddyList.empty}">
+        <td colspan="2"> No buddies Available </td>
+    </tr>
+    <tr th:each="buddy : ${buddyList}">
+        <td><span th:text="${buddy.id}"> Title </span></td>
+        <td><span th:text="${buddy.name}"> Title </span></td>
+        <td><span th:text="${buddy.phoneNumber}"> Author </span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
