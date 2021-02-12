@@ -20,6 +20,11 @@ public class BuddyInfoController {
         this.buddyRepo = buddyRepo;
     }
 
+    @GetMapping(path = "/")
+    public String greeting() {
+        return "index";
+    }
+
     @GetMapping(path = "/buddies")
     public ModelAndView getBuddies() {
         ModelAndView modelAndView = new ModelAndView();
