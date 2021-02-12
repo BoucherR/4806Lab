@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: AppStarter.Controllers.BuddyInfoControllerTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.862 s - in AppStarter.Controllers.BuddyInfoControllerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.63 s - in AppStarter.Controllers.BuddyInfoControllerTest
