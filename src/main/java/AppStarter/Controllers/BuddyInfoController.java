@@ -1,5 +1,6 @@
 package AppStarter.Controllers;
 
+import AppStarter.JpaMemoryDatabase.AddressBook;
 import AppStarter.JpaMemoryDatabase.BuddyInfo;
 import AppStarter.JpaMemoryDatabase.BuddyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toCollection;
+import static java.util.stream.Collectors.toList;
 
 @Controller
 public class BuddyInfoController {
@@ -47,5 +54,19 @@ public class BuddyInfoController {
         model.addAttribute("buddy", buddy);
         buddyRepo.save(buddy);
         return "result";
+    }
+
+    @PostMapping(path = "addBuddy", consumes = "application/json")
+    @ResponseBody
+    public void addBuddy(@RequestBody BuddyInfo buddy) {
+        buddyRepo.save(buddy);
+    }
+
+    @GetMapping(path = "getBuddies", produces = "application/json")
+    @ResponseBody
+    public Collection<BuddyInfo> getBuddyList() {
+        Collection<BuddyInfo> returnBuddies = new ArrayList<>();
+        buddyRepo.findAll().forEach(returnBuddies::add);
+        return returnBuddies;
     }
 }

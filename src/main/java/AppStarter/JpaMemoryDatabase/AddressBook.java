@@ -32,4 +32,12 @@ public class AddressBook {
     public void setBuddyList(Collection<BuddyInfo> buddyList) {
         this.buddyList = buddyList;
     }
+
+    public void addBuddy(BuddyInfo buddy) {
+        if (buddy != null)  this.buddyList.add(buddy);
+    }
+
+    public void removeBuddy(BuddyInfo buddy) {
+        this.buddyList.remove(buddy);
+    }
 }

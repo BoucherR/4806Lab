@@ -50,9 +50,20 @@ public class AddressBookController {
     @PostMapping(path = "addBuddyToAddressBook", consumes = "application/json", produces = "application/json")
     @ResponseBody
     public void addBuddyToAddressBook(@RequestBody BuddyInfo buddy, @RequestParam(name="id") Long id) {
+
+        for (AddressBook book : addressBookRepo.findAll()) {
+            System.out.println("Address Book ID is: " + book.getId());
+            System.out.println("Buddylist: " + book.getBuddyList().toString());
+        }
+
         Optional<AddressBook> possibleBook = addressBookRepo.findById(id);
-        AddressBook book = possibleBook.get();
-        book.getBuddyList().add(buddy);
-        addressBookRepo.save(book);
+
+        possibleBook.ifPresent(book -> {
+            buddy.setAddressBook(book);
+            book.addBuddy(buddy);
+            System.out.println(book.getBuddyList().toString());
+            AddressBook bookReturn = addressBookRepo.save(book);
+            System.out.println(bookReturn.getBuddyList().toString());
+        });
     }
 }

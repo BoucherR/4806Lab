@@ -3,14 +3,75 @@
 <head>
     <title>Getting Started: Handling Form Submission</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script >
+        $(document).ready(function() {
+            $("#buddyForm").submit(function (event) {
+                event.preventDefault();
+                ajaxGet();
+            });
+            function ajaxGet() {
+                $.ajax({
+                    type: "GET",
+                    url: "/getBuddies",
+                })
+                    .then(function (data) {
+                        var result = "";
+                        $.each(data, function (index) {
+                            result += '<span>Buddy: </span>' + data[index].name + '<span> , </span>' +
+                                '<span>ID: </span>' + data[index].id + '<p> </p>';
+                        })
+                        $('.buddy-list').empty();
+                        $('.buddy-list').append(result);
+                    });
+            }
+        });
+    </script>
+    <script>
+        $( document ).ready(function() {
+            $("#buddyForm").submit(function (event) {
+                event.preventDefault();
+                ajaxPost();
+            });
+            function ajaxPost() {
+                // PREPARE FORM DATA
+                var buddyData = {
+                    id: $("#id").val(),
+                    name: $("#name").val(),
+                    phoneNumber: $("#phoneNumber").val(),
+                    addressBook: null,
+                }
+                debugger;
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json",
+                    url: "/addBuddy",
+                    data: JSON.stringify(buddyData),
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.status === "OK") {
+                            alert("Form was successfully sent!")
+                        }else{
+                            console.log(result);
+                        }
+                    }
+                });
+            }
+        })
+    </script>
 </head>
 <body>
-<h1>Add a buddy!</h1>
-<form action="#" th:action="@{/buddy}" th:object="${buddyInfo}" method="post">
-    <p>ID: <input type="text" th:field="*{id}" /></p>
-    <p>Name: <input type="text" th:field="*{name}" /></p>
-    <p>Phone Number: <input type="text" th:field="*{phoneNumber}" /></p>
-    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-</form>
+    <h1>Add a buddy!</h1>
+        <form action="#" th:action="@{/buddy}" th:object="${buddyInfo}" method="post" id="buddyForm">
+            <p>ID: <input type="text" th:field="*{id}" id="id"/></p>
+            <p>Name: <input type="text" th:field="*{name}" id="name"/></p>
+            <p>Phone Number: <input type="text" th:field="*{phoneNumber}" id="phoneNumber"/></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+    <div>
+        <p>BuddyList: </p>
+        <p class="buddy-list"> </p>
+    </div>
 </body>
 </html>
