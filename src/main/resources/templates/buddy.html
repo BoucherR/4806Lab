@@ -37,12 +37,11 @@
             function ajaxPost() {
                 // PREPARE FORM DATA
                 var buddyData = {
-                    id: $("#id").val(),
+                    // id: $("#id").val(),
                     name: $("#name").val(),
                     phoneNumber: $("#phoneNumber").val(),
                     addressBook: null,
                 }
-                debugger;
                 $.ajax({
                     type: "POST",
                     contentType: "application/json",
@@ -64,7 +63,7 @@
 <body>
     <h1>Add a buddy!</h1>
         <form action="#" th:action="@{/buddy}" th:object="${buddyInfo}" method="post" id="buddyForm">
-            <p>ID: <input type="text" th:field="*{id}" id="id"/></p>
+<!--            <p>ID: <input type="text" th:field="*{id}" id="id"/></p>-->
             <p>Name: <input type="text" th:field="*{name}" id="name"/></p>
             <p>Phone Number: <input type="text" th:field="*{phoneNumber}" id="phoneNumber"/></p>
         <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
